@@ -12,3 +12,5 @@ When a restaurant is selected, we will generate the weather data for that date a
 
 The Apis we will be using are: TicketMaster, Zomato, and OpenWeatherMap
 
+We will be using Foundation for our CSS framework
+
