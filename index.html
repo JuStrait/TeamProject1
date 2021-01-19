@@ -1,132 +1,190 @@
+
 <!doctype html>
-<!-- Here is the bare bones HTML it could really use some color and functionality -->
 <html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation for Sites</title>
+    <link rel="stylesheet" href="css/foundation.css">
+  </head>
+<body>
+    <header class="container">
 
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Date Event Planner</title>
-        <!-- Compressed CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
-    </head>
-
-    <body>
-
-        <header>
-            <div class="grid-container fluid">
-
-                <!-- App title -->
-                <div class="grid-x">
-                <div class="cell small-6 medium-6 large-6" class="text-left">Date Event Planner</div>
-                <div class="cell small-6 medium-6 large-6" class="text-right">Impress With Less Stress!</div>
-                </div>
-
-                <!-- Using as Placeholder for appended content -->
-                <div class="grid-x">
-                    <div clas="cell small-4 medium-4 large-4">Event: I Prevail! @ The Tony's Event Center</div> 
-                    <div clas="cell small-4 medium-4 large-4">Restaurant: Martinelli's Little Italy</div>
-                    <div clas="cell small-4 medium-4 large-4"><p>Temperature: Cold As Fuck (Cuddle for Warmth)</div>
-                </div>
-
-                <!-- Should be used to Save or Clear local storage-->
-                <div class="tiny button-group align-right">
-                    <a class="button success">Save</a>
-                    <a class="button warning">Clear</a>
-                </div>
-
-            </div>
-        </header>
-
-        <Ticketmaster>
-            
-            <!-- Widgets cost money so coded my on form using foundation -->
-            <!-- Will need to write code using java to make labels work -->
-            <form>
-                <div class="grid-container fluid">
-
-                    <div class="grid-x grid-padding-x">
-                        <div class="medium-6 cell">
-                        <label>Keyword
-                            <input type="text" placeholder=".medium-6.cell">
-                        </label>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                    <div class="grid-x grid-padding-x">
-                        <fieldset class="medium-5 cell">
-                        <legend>Period</legend>
-                        <input type="radio" name="Period" value="Today" id="todaySearch" required><label for="periodToday">Today</label>
-                        <input type="radio" name="Period" value="Week" id="weekSearch"><label for="periodWeek">Week</label>
-                        <input type="radio" name="Period" value="Month" id="monthSearch"><label for="periodMonth">Month</label>
-                        <input type="radio" name="Period" value="Year" id="yearSearch"><label for="periodYear">Year</label>
-                        <input type="radio" name="Period" value="Custom" id="customSearch"><label for="periodCustom">Custom</label>
-                        </fieldset>
-                    </div>
-
-                    <hr>
-
-                    <div class="grid-x grid-padding-x">
-                        <div class="medium-6 cell">
-                          <label>Postal Code
-                            <input type="text" placeholder=".medium-6.cell">
-                          </label>
-                        </div>
-                        <div class="medium-6 cell">
-                          <label>City
-                            <input type="text" placeholder=".medium-6.cell">
-                          </label>
-                        </div>
-                    </div>
-                    
-                    <div class="grid-x grid-padding-x">
-                        <div class="medium-5 cell">
-                            <label for="right-label" class="text-left">Event Count (1-100)</label>
-                        </div>
-                        <div class="medium-2 cell">
-                            <input type="number" value="25" id="eventCount">
-                        </div>
-                        <div class="medium-5 cell"></div>
-                    </div>
-                    
-                    <div class="button-group align-center">
-                        <a class="button success">Save</a>
-                        <a class="button warning">Clear</a>
-                    </div>
-
-                </div>
-
-              </form>
-            
-            <!-- Used jQuery and tied API to URL to get info -->
-            <!-- Just need to tie the labels to the code below -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <script type="text/javascript">
-                var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?apikey=WPcvWaSga9OR6jQP2PDNVNimKtFhAaMj";
-
-                $.ajax({
-                    type:"GET",
-                    url: queryURL,
-                    async:true,
-                    dataType: "json",
-                    success: function(json) {
-                                console.log(json);
-                            },
-                    error: function(xhr, status, err) {
-                            }
-                });    
-            </script>
-            
-        </Ticketmaster>
-
-        <!-- Compressed JavaScript -->
-        <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+        <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+            <button class="menu" type="button" data-toggle="responsive-menu"></button>
+            <div class="title-bar-title">Date Event Planner</div>
+            <div class="title-bar-title title-bar-right">Impress With Less Stress</div>
+        </div>
         
-        <script>
-        $(document).foundation();
-        </script>
+        <div class="top-bar" id="responsive-menu">
 
-    </body>
+            <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu>
+                <li><a href="#0">Event Finder</a></li>
+                <li><a href="#0">Restaurants in Area</a></li>
+                <li><a href="#0">Weather Report</a></li>
+            </ul>
+            </div>
 
+            <br>
+
+            <div class="textarea">
+                <label>Event Decisions Made</label>
+                <input class="textarea" type="text" placeholder="Choices Made" id="eventDecisions">
+            </div>
+
+        </div>
+
+    </header>
+
+    <br>
+
+    <form>
+        
+        <h1 class="heading">Event Finder <small>powered by Ticketmaster</small></h1>
+        
+        <label>Keyword
+            <input type="text" placeholder="Event Preference Goes Here">
+        </label>
+
+        <fieldset class="large-5 cell fieldset">
+            <legend>Period</legend>
+            <input type="radio" name="eventLength" value="Today" id="eventToday" required><label for="eventLength">Today</label>
+            <input type="radio" name="eventLength" value="Week" id="eventToday"><label for="eventLength">Week</label>
+            <input type="radio" name="eventLength" value="Month" id="eventToday"><label for="eventLength">Month</label>
+            <input type="radio" name="eventLength" value="Year" id="eventToday"><label for="eventLength">Year</label>
+            <input type="radio" name="eventLength" value="Custom" id="eventToday"><label for="eventLength">Custom</label>
+        </fieldset>
+        
+        <label>Country Code
+            <select>
+              <option value="husker">United States of America</option>
+              <option value="starbuck">Andorra</option>
+              <option value="hotdog">Anguilla</option>
+              <option value="apollo">Argentina</option>
+              <option value="husker">Australia</option>
+              <option value="starbuck">Austria</option>
+              <option value="hotdog">Azerbaijan</option>
+              <option value="apollo">Bahamas</option>
+              <option value="husker">Bahrain</option>
+              <option value="starbuck">Barbados</option>
+              <option value="hotdog">Belgium</option>
+              <option value="apollo">Bermuda</option>
+              <option value="husker">Brazil</option>
+              <option value="starbuck">Bulgaria</option>
+              <option value="hotdog">Canada</option>
+              <option value="apollo">Chile</option>
+              <option value="husker">China</option>
+              <option value="starbuck">Colombia</option>
+              <option value="hotdog">Costa Rica</option>
+              <option value="apollo">Croatia</option>
+              <option value="husker">Cyprus</option>
+              <option value="starbuck">Czech Republic</option>
+              <option value="hotdog">Denmark</option>
+              <option value="apollo">Dominican Republic</option>
+              <option value="husker">Ecuador</option>
+              <option value="starbuck">Estonia</option>
+              <option value="hotdog">Faroe Islands</option>
+              <option value="apollo">Finland</option>
+              <option value="husker">France</option>
+              <option value="starbuck">Georgia</option>
+              <option value="hotdog">Germany</option>
+              <option value="apollo">Ghana</option>
+              <option value="husker">Gibraltar</option>
+              <option value="starbuck">Great Britain</option>
+              <option value="hotdog">Greece</option>
+              <option value="apollo">Hong Kong</option>
+              <option value="husker">Hungary</option>
+              <option value="starbuck">Iceland</option>
+              <option value="hotdog">India</option>
+              <option value="apollo">Ireland</option>
+              <option value="husker">Israel</option>
+              <option value="starbuck">Italy</option>
+              <option value="hotdog">Jamaica</option>
+              <option value="apollo">Japan</option>
+              <option value="husker">Korea, Republic of</option>
+              <option value="starbuck">Latvia</option>
+              <option value="hotdog">Lebanon</option>
+              <option value="apollo">Lithuania</option>
+              <option value="husker">Luxembourg</option>
+              <option value="starbuck">Malaysia</option>
+              <option value="hotdog">Malta</option>
+              <option value="apollo">Mexico</option>
+              <option value="husker">Monaco</option>
+              <option value="starbuck">Montenegro</option>
+              <option value="hotdog">Morocco</option>
+              <option value="apollo">Netherlands</option>
+              <option value="husker">Netherlands Antilles</option>
+              <option value="starbuck">New Zealand</option>
+              <option value="hotdog">Northern Ireland</option>
+              <option value="apollo">Norway</option>
+              <option value="husker">Peru</option>
+              <option value="starbuck">Poland</option>
+              <option value="hotdog">Portugal</option>
+              <option value="apollo">Romania</option>
+              <option value="husker">Russian Federation</option>
+              <option value="starbuck">Saint Lucia</option>
+              <option value="hotdog">Saudi Arabia</option>
+              <option value="apollo">Serbia</option>
+              <option value="husker">Singapore</option>
+              <option value="starbuck">Slovakia</option>
+              <option value="hotdog">Slovenia</option>
+              <option value="apollo">South Africa</option>
+              <option value="husker">Spain</option>
+              <option value="starbuck">Sweden</option>
+              <option value="hotdog">Switzerland</option>
+              <option value="apollo">Taiwan</option>
+              <option value="husker">Thailand</option>
+              <option value="starbuck">Trinidad and Tobago</option>
+              <option value="hotdog">Turkey</option>
+              <option value="apollo">Ukraine</option>
+              <option value="husker">United Arab Emirates</option>
+              <option value="starbuck">Uruguay</option>
+              <option value="hotdog">Venezuela</option>
+            </select>
+        </label>
+
+        <div class="grid">
+            <div class="grid-x grid-padding-">
+              <div class="medium-4 cell">
+                <label>Postal Code
+                  <input type="text" placeholder="Example: 67401">
+                </label>
+            </div>
+
+            <div class="medium-1 cell"></div>
+
+            <div class="medium-7 cell">
+                <label>City
+                  <input type="text" placeholder="Example: Salina">
+                </label>
+              </div>
+            </div>
+        </div>
+        
+        <hr>
+
+        <div class="grid-x grid-padding-x">
+          <div class="small-3 cell">
+            <label for="middle-label" class="text-right middle">Event Count (1-100)</label>
+          </div>
+          <div class="small-2 cell">
+            <input type="number" value="25" id="middle-label">
+          </div>
+          <div class="small-7 cell"></div>
+        </div>
+    </form>
+
+    <div class="textarea">
+      <label><h2>Events In Your Area</h2></label>
+      <input class="textarea" type="text" placeholder="Events to Choose From" id="eventSelection">
+    </div>    
+
+    
+
+
+<script src="js/vendor.js"></script>
+<script src="js/foundation.js"></script>
+</body>
 </html>

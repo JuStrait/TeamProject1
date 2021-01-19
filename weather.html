@@ -1,33 +1,57 @@
 <!doctype html>
-<html lang="en">
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html class="no-js" lang="en">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Event Planner: Weather App</title>
     <link href="https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyABeMOUldoM3nEqnrlWOJp1WFw4twJsY_c" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-    <link href="assets/weather.css" rel="stylesheet">
-
-    <title>Date Event Planner: Weather</title>
-</head>
+    <link rel="stylesheet" href="assets/weather.css">
+    <link rel="stylesheet" href="css/foundation.css">
+  </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">&nbsp;<i class="fas fa-heart"></i> Date Event Planner <i class="fas fa-heart"></i> </a>
-        <div class="col-md-6 text-end text-light">Weather App&nbsp;</div>    
-    </nav>
-    <div class="container-fluid">
-        <div class="row mt-3">
-            <div class="col-md-3 searchArea">
-                <h2 class="text-secondary">Search for a city:</h2>
+
+    <header class="container">
+
+        <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+            <button class="menu" type="button" data-toggle="responsive-menu"></button>
+            <div class="title-bar-title">Date Event Planner</div>
+            <div class="title-bar-title title-bar-right">Impress With Less Stress</div>
+        </div>
+        
+        <div class="top-bar" id="responsive-menu">
+
+            <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu>
+                <li><a href="#0">Event Finder</a></li>
+                <li><a href="#0">Restaurants in Area</a></li>
+                <li><a href="#0">Weather Report</a></li>
+            </ul>
+            </div>
+
+            <br>
+
+            <div class="textarea">
+                <label>Event Decisions Made</label>
+                <input class="textarea" type="text" placeholder="Choices Made" id="eventDecisions">
+            </div>
+
+        </div>
+
+    </header>
+
+    <div class="grid-container">
+        <div class="grid-x mt-3">
+            <div class="cell medium-4 searchArea">
+                <h2>Search for a city:</h2>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" id="searchCity" type="search" aria-label="Search">
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" id="searchBtn" type="submit">
+                    <input class="input-group-field" type="text" id="searchCity">
+                    <div class="input-group-button">
+                        <button class="button button-primary" id="searchBtn" type="submit" value="submit">
                             <i class="fas fa-search-location"></i>
                         </button>
                     </div>
@@ -37,22 +61,19 @@
                 </div>
             </div>
 
-            <div class="col-md-9">
-                <div class="container" id="cityWeather">
+            <div class="cell medium-9">
+                <div class="grid-container" id="cityWeather">
                     <!--Weather for current location-->
                 </div>
             </div>
         </div>
 
     </div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="assets/weather.js"></script>
+    <script src="assets/weather.js">aaaa</script>
+    <script src="js/vendor.js"></script>
+    <script src="js/foundation.js"></script>
 </body>
 
 </html>
