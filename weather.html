@@ -27,9 +27,9 @@
 
             <div class="top-bar-left">
             <ul class="dropdown menu" data-dropdown-menu>
-                <li><a href="#0">Event Finder</a></li>
-                <li><a href="#0">Restaurants in Area</a></li>
-                <li><a href="#0">Weather Report</a></li>
+                <li><a href="index.html">Event Finder</a></li>
+                <li><a href="food.html">Restaurants in Area</a></li>
+                <li><a href="weather.html">Weather Report</a></li>
             </ul>
             </div>
 
@@ -44,11 +44,11 @@
 
     </header>
 
-    <div class="grid-container">
-        <div class="grid-x mt-3">
-            <div class="cell medium-4 searchArea">
+    <div class="grid-container fluid">
+        <div class="grid-x grid-padding-x">
+            <div class="cell medium-3 searchArea">
                 <h2>Search for a city:</h2>
-                <div class="input-group mb-3">
+                <div class="input-group grid-padding-x">
                     <input class="input-group-field" type="text" id="searchCity">
                     <div class="input-group-button">
                         <button class="button button-primary" id="searchBtn" type="submit" value="submit">
@@ -56,10 +56,11 @@
                         </button>
                     </div>
                 </div>
-                <div class="mt-5" id="pastCities">
+                <div class="grid-padding-x" id="pastCities">
                     <!--Buttons for previous searches here-->
                 </div>
             </div>
+          
 
             <div class="cell medium-9">
                 <div class="grid-container" id="cityWeather">
@@ -67,6 +68,8 @@
                 </div>
             </div>
         </div>
+        
+    </div>
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
