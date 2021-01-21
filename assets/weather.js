@@ -87,7 +87,7 @@ function getCurrent(city) {
         var cardRow = $("<div>").attr("class", "row no-gutters");
         currCard.append(cardRow);
 
-        //get icon for weather conditions
+        //Provides Weather Icons
         var iconURL = "https://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png";
 
         var imgDiv = $("<div>").attr("class", "col-md-4").append($("<img>").attr("src", iconURL).attr("class", "card-img"));
@@ -96,19 +96,19 @@ function getCurrent(city) {
         var textDiv = $("<div>").attr("class", "col-md-8");
         var cardBody = $("<div>").attr("class", "card-body");
         textDiv.append(cardBody);
-        //display city name
+        //Appends City Name to Card
         cardBody.append($("<h3>").attr("class", "card-title").text(response.name));
-        //display last updated
+        //Appends Last Updated Time to Card
         var currdate = moment(response.dt, "X").format("dddd, MMMM Do YYYY, h:mm a");
         cardBody.append($("<p>").attr("class", "card-text").append($("<small>").attr("class", "text-muted").text("Last updated: " + currdate)));
-        //display Temperature
+        //Appends Temperature to Card
         cardBody.append($("<p>").attr("class", "card-text").html("Temperature: " + response.main.temp + " &#8457;"));
-        //display Humidity
+        //Appends Humidity to Card
         cardBody.append($("<p>").attr("class", "card-text").text("Humidity: " + response.main.humidity + "%"));
-        //display Wind Speed
+        //Appends Wind Speed to Card
         cardBody.append($("<p>").attr("class", "card-text").text("Wind Speed: " + response.wind.speed + " MPH"));
 
-        //get UV Index
+        //Gets and Append UV Index to Card
         var uvURL = "https://api.openweathermap.org/data/2.5/uvi?appid=af8f0cf02906080babb5b0971511a2f6&lat=" + response.coord.lat + "&lon=" + response.coord.lat;
         $.ajax({
             url: uvURL,
@@ -140,20 +140,20 @@ function getCurrent(city) {
 }
 
 function getForecast(city) {
-    //get 5 day forecast
+    //Get 5 Day forecast from OpenWeather
     var queryURL = "https://api.openweathermap.org/data/2.5/forecast?id=" + city + "&APPID=af8f0cf02906080babb5b0971511a2f6&units=imperial";
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        //add container div for forecast cards
-        var newrow = $("<div>").attr("class", "forecast");
+        //Created a Div for 5 Day forecast
+        var newrow = $("<div>").attr("class", "fiveDay");
         $("#cityWeather").append(newrow);
 
-        //loop through array response to find the forecasts for 15:00
+        //Loop is for 5 Day forecast temps (noon)
         for (var i = 0; i < response.list.length; i++) {
-            if (response.list[i].dt_txt.indexOf("15:00:00") !== -1) {
-                var newCol = $("<div>").attr("class", "one-fifth");
+            if (response.list[i].dt_txt.indexOf("12:00:00") !== -1) {
+                var newCol = $("<div>").attr("class", "daySize");
                 newrow.append(newCol);
 
                 var newCard = $("<div>").attr("class", "card text-white bg-primary");

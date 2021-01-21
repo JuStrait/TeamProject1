@@ -1,41 +1,49 @@
 <!doctype html>
-<!-- Here is the bare bones HTML it could really use some color and functionality -->
+
 <html class="no-js" lang="en">
 
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Date Event Planner</title>
-        <!-- Compressed CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
-    </head>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Event Planner: Restaurants App</title>
+    <link href="https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyABeMOUldoM3nEqnrlWOJp1WFw4twJsY_c" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/weather.css">
+    <link rel="stylesheet" href="css/foundation.css">
+  </head>
 
-    <body>
+<body>
 
-        <header>
-            <div class="grid-container fluid">
+    <header class="container">
 
-                <!-- App title -->
-                <div class="grid-x">
-                <div class="cell small-6 medium-6 large-6" class="text-left">Date Event Planner</div>
-                <div class="cell small-6 medium-6 large-6" class="text-right">Impress With Less Stress!</div>
-                </div>
+        <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+            <button class="menu" type="button" data-toggle="responsive-menu"></button>
+            <div class="title-bar-title">Date Event Planner</div>
+            <div class="title-bar-title title-bar-right">Impress With Less Stress</div>
+        </div>
+        
+        <div class="top-bar" id="responsive-menu">
 
-                <!-- Using as Placeholder for appended content -->
-                <div class="grid-x">
-                    <div clas="cell small-4 medium-4 large-4">Event: I Prevail! @ The Tony's Event Center</div> 
-                    <div clas="cell small-4 medium-4 large-4">Restaurant: Martinelli's Little Italy</div>
-                    <div clas="cell small-4 medium-4 large-4"><p>Temperature: Cold As Fuck (Cuddle for Warmth)</div>
-                </div>
-
-                <!-- Should be used to Save or Clear local storage-->
-                <div class="tiny button-group align-right">
-                    <a class="button success">Save</a>
-                    <a class="button warning">Clear</a>
-                </div>
-
+            <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu>
+                <li><a href="index.html">Event Finder</a></li>
+                <li><a href="food.html">Restaurants in Area</a></li>
+                <li><a href="weather.html">Weather Report</a></li>
+            </ul>
             </div>
-        </header>
+
+            <br>
+
+            <div class="textarea">
+                <label>Event Decisions Made</label>
+                <input class="textarea" type="text" placeholder="Choices Made" id="eventDecisions">
+            </div>
+
+        </div>
+
+    </header>
+
 
         
 
