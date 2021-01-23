@@ -1,59 +1,107 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Starter Template - Materialize</title>
 
-<html class="no-js" lang="en">
-
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Date Event Planner: Restaurants App</title>
-    <link href="https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyABeMOUldoM3nEqnrlWOJp1WFw4twJsY_c" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/weather.css">
-    <link rel="stylesheet" href="css/foundation.css">
-  </head>
-
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
 <body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo right">"Insert Logo Here"</a>
+      <ul class="left hide-on-med-and-down">
+        <li><a href="#">Navbar Link</a></li>
+        <li><a href="#">Ticketmaster</a></li>
+        <li><a href="#">Zomato</a></li>
+        <li><a href="#">OpenWeather</a></li>
+      </ul>
 
-    <header class="container">
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Main Page</a></li>
+        <li><a href="#">Ticketmaster</a></li>
+        <li><a href="#">Zomato</a></li>
+        <li><a href="#">OpenWeather</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Dating Event Planner</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">"Explaination on why we created this application goes here"</h5>
+      </div>
+      <div class="row center">
+        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Start Planning</a>
+      </div>
+      <br><br>
 
-        <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
-            <button class="menu" type="button" data-toggle="responsive-menu"></button>
-            <div class="title-bar-title">Date Event Planner</div>
-            <div class="title-bar-title title-bar-right">Impress With Less Stress</div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">"Reason 1 App is Helpful"</h5>
+
+            <p class="light">"Explaination for Reason 1"</p>
+          </div>
         </div>
-        
-        <div class="top-bar" id="responsive-menu">
 
-            <div class="top-bar-left">
-            <ul class="dropdown menu" data-dropdown-menu>
-                <li><a href="index.html">Event Finder</a></li>
-                <li><a href="food.html">Restaurants in Area</a></li>
-                <li><a href="weather.html">Weather Report</a></li>
-            </ul>
-            </div>
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">"Reason 2 App is Helpful"</h5>
 
-            <br>
-
-            <div class="textarea">
-                <label>Event Decisions Made</label>
-                <input class="textarea" type="text" placeholder="Choices Made" id="eventDecisions">
-            </div>
-
+            <p class="light">"Explaination for Reason 2"</p>
+          </div>
         </div>
 
-    </header>
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">"Reason 3 App is Helpful"</h5>
+
+            <p class="light">"Explaination for Reason 3"</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <br><br>
+  </div>
+
+  <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
 
 
-        
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
 
-        <!-- Compressed JavaScript -->
-        <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
-        
-        <script>
-        $(document).foundation();
-        </script>
-
-    </body>
-
+  </body>
 </html>
+

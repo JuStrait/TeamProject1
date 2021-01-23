@@ -1,190 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Starter Template - Materialize</title>
 
-<!doctype html>
-<html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Date Event Planner: Event App</title>
-    <link rel="stylesheet" href="css/foundation.css">
-  </head>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
 <body>
-    <header class="container">
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo right">"Insert Logo Here"</a>
+      <ul class="left hide-on-med-and-down">
+        <li><a href="#">Navbar Link</a></li>
+        <li><a href="#">Ticketmaster</a></li>
+        <li><a href="#">Zomato</a></li>
+        <li><a href="#">OpenWeather</a></li>
+      </ul>
 
-        <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
-            <button class="menu" type="button" data-toggle="responsive-menu"></button>
-            <div class="title-bar-title">Date Event Planner</div>
-            <div class="title-bar-title title-bar-right">Impress With Less Stress</div>
-        </div>
-        
-        <div class="top-bar" id="responsive-menu">
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Main Page</a></li>
+        <li><a href="#">Ticketmaster</a></li>
+        <li><a href="#">Zomato</a></li>
+        <li><a href="#">OpenWeather</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Dating Event Planner</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">"Explaination on why we created this application goes here"</h5>
+      </div>
+      <div class="row center">
+        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Start Planning</a>
+      </div>
+      <br><br>
 
-            <div class="top-bar-left">
-            <ul class="dropdown menu" data-dropdown-menu>
-                <li><a href="index.html">Event Finder</a></li>
-                <li><a href="food.html">Restaurants in Area</a></li>
-                <li><a href="weather.html">Weather Report</a></li>
-            </ul>
-            </div>
+    </div>
+  </div>
 
-            <br>
 
-            <div class="textarea">
-                <label>Event Decisions Made</label>
-                <input class="textarea" type="text" placeholder="Choices Made" id="eventDecisions">
-            </div>
+  <div class="container">
+    <div class="section">
 
-        </div>
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">"Reason 1 App is Helpful"</h5>
 
-    </header>
-
-    <br>
-
-    <form>
-        
-        <h1 class="heading">Event Finder <small>powered by Ticketmaster</small></h1>
-        
-        <label>Keyword
-            <input type="text" placeholder="Event Preference Goes Here">
-        </label>
-
-        <fieldset class="large-5 cell fieldset">
-            <legend>Period</legend>
-            <input type="radio" name="eventLength" value="Today" id="eventToday" required><label for="eventLength">Today</label>
-            <input type="radio" name="eventLength" value="Week" id="eventToday"><label for="eventLength">Week</label>
-            <input type="radio" name="eventLength" value="Month" id="eventToday"><label for="eventLength">Month</label>
-            <input type="radio" name="eventLength" value="Year" id="eventToday"><label for="eventLength">Year</label>
-            <input type="radio" name="eventLength" value="Custom" id="eventToday"><label for="eventLength">Custom</label>
-        </fieldset>
-        
-        <label>Country Code
-            <select>
-              <option value="United States of America">United States of America</option>
-              <option value="Andorra">Andorra</option>
-              <option value="Anguilla">Anguilla</option>
-              <option value="Argentina">Argentina</option>
-              <option value="Australia">Australia</option>
-              <option value="Austria">Austria</option>
-              <option value="Azerbaijan">Azerbaijan</option>
-              <option value="Bahamas">Bahamas</option>
-              <option value="Bahrain">Bahrain</option>
-              <option value="Barbados">Barbados</option>
-              <option value="Belgium">Belgium</option>
-              <option value="Bermuda">Bermuda</option>
-              <option value="Brazil">Brazil</option>
-              <option value="Bulgaria">Bulgaria</option>
-              <option value="Canada">Canada</option>
-              <option value="Chile">Chile</option>
-              <option value="China">China</option>
-              <option value="Colombia">Colombia</option>
-              <option value="Costa Rica">Costa Rica</option>
-              <option value="Croatia">Croatia</option>
-              <option value="Cyprus">Cyprus</option>
-              <option value="Czech Republic">Czech Republic</option>
-              <option value="Denmark">Denmark</option>
-              <option value="Dominican Republic">Dominican Republic</option>
-              <option value="Ecuador">Ecuador</option>
-              <option value="Estonia">Estonia</option>
-              <option value="Faroe Islands">Faroe Islands</option>
-              <option value="Finland">Finland</option>
-              <option value="France">France</option>
-              <option value="Georgia">Georgia</option>
-              <option value="Germany">Germany</option>
-              <option value="Ghana">Ghana</option>
-              <option value="Gibraltar">Gibraltar</option>
-              <option value="Great Britain">Great Britain</option>
-              <option value="Greece">Greece</option>
-              <option value="Hong Kong">Hong Kong</option>
-              <option value="Hungary">Hungary</option>
-              <option value="Iceland">Iceland</option>
-              <option value="India">India</option>
-              <option value="Ireland">Ireland</option>
-              <option value="Israel">Israel</option>
-              <option value="Italy">Italy</option>
-              <option value="Jamaica">Jamaica</option>
-              <option value="Japan">Japan</option>
-              <option value="Korea, Republic of">Korea, Republic of</option>
-              <option value="Latvia">Latvia</option>
-              <option value="Lebanon">Lebanon</option>
-              <option value="Lithuania">Lithuania</option>
-              <option value="Luxembourg">Luxembourg</option>
-              <option value="Malaysia">Malaysia</option>
-              <option value="Malta">Malta</option>
-              <option value="Mexico">Mexico</option>
-              <option value="Monaco">Monaco</option>
-              <option value="Montenegro">Montenegro</option>
-              <option value="Morocco">Morocco</option>
-              <option value="Netherlands">Netherlands</option>
-              <option value="Netherlands Antilles">Netherlands Antilles</option>
-              <option value="New Zealand">New Zealand</option>
-              <option value="Northern Ireland">Northern Ireland</option>
-              <option value="Norway">Norway</option>
-              <option value="Peru">Peru</option>
-              <option value="Poland">Poland</option>
-              <option value="Portugal">Portugal</option>
-              <option value="Romania">Romania</option>
-              <option value="Russian Federation">Russian Federation</option>
-              <option value="Saint Lucia">Saint Lucia</option>
-              <option value="Saudi Arabia">Saudi Arabia</option>
-              <option value="Serbia">Serbia</option>
-              <option value="Singapore">Singapore</option>
-              <option value="Slovakia">Slovakia</option>
-              <option value="Slovenia">Slovenia</option>
-              <option value="South Africa">South Africa</option>
-              <option value="Spain">Spain</option>
-              <option value="Sweden">Sweden</option>
-              <option value="Switzerland">Switzerland</option>
-              <option value="Taiwan">Taiwan</option>
-              <option value="Thailand">Thailand</option>
-              <option value="Trinidad and Tobago">Trinidad and Tobago</option>
-              <option value="Turkey">Turkey</option>
-              <option value="Ukraine">Ukraine</option>
-              <option value="United Arab Emirates">United Arab Emirates</option>
-              <option value="Uruguay">Uruguay</option>
-              <option value="Venezuela">Venezuela</option>
-            </select>
-        </label>
-
-        <div class="grid">
-            <div class="grid-x grid-padding-">
-              <div class="medium-4 cell">
-                <label>Postal Code
-                  <input type="text" placeholder="Example: 67401">
-                </label>
-            </div>
-
-            <div class="medium-1 cell"></div>
-
-            <div class="medium-7 cell">
-                <label>City
-                  <input type="text" placeholder="Example: Salina">
-                </label>
-              </div>
-            </div>
-        </div>
-        
-        <hr>
-
-        <div class="grid-x grid-padding-x">
-          <div class="small-3 cell">
-            <label for="middle-label" class="text-right middle">Event Count (1-100)</label>
+            <p class="light">"Explaination for Reason 1"</p>
           </div>
-          <div class="small-2 cell">
-            <input type="number" value="25" id="middle-label">
-          </div>
-          <div class="small-7 cell"></div>
         </div>
-    </form>
 
-    <div class="textarea">
-      <label><h2>Events In Your Area</h2></label>
-      <input class="textarea" type="text" placeholder="Events to Choose From" id="eventSelection">
-    </div>    
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">"Reason 2 App is Helpful"</h5>
 
-    
+            <p class="light">"Explaination for Reason 2"</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">"Reason 3 App is Helpful"</h5>
+
+            <p class="light">"Explaination for Reason 3"</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <br><br>
+  </div>
+
+  <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
 
 
-<script src="js/vendor.js"></script>
-<script src="js/foundation.js"></script>
-</body>
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
 </html>
+
