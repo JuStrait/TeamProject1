@@ -24,8 +24,7 @@
     <div class="container px-3 mb-3">
         <h3>Looking for a specific artist, event, or play?</h3>
     <div class="input-group">
-        <input type="text" class="form-control" placeholder="Enter it here" aria-label="keyword search" aria-describedby="keyWord">
-        <div class="input-group" id="eventKeyword"></div>
+        <input type="text" class="form-control" id="eventKeyword" placeholder="Enter it here" aria-label="keyword search" aria-describedby="keyWord">
     </div><br>
 
         <h3>Location</h3>
@@ -43,135 +42,27 @@
             <input type="text" aria-label="zipCode" class="form-control" id="eventZip">
         </div>
         
-            <input type="text" class="form-control" aria-label="eventDistance">
+            <input type="text" class="form-control" aria-label="eventDistance" id="eventDistance">
             <div class="input-group-append">
                 <span class="input-group-text">miles</span>
             </div>
         </div>
-
         <h3>When are you planning this outing?</h3>
     <div class="input-group row ">
             <p class="col">Start date</p>
-            <select class="custom-select col" id="eventMonth01">
-                <option selected>Choose...</option>
-                <option value="0">January</option>
-                <option value="1">February</option>
-                <option value="2">March</option>
-                <option value="3">April</option>
-                <option value="4">May</option>
-                <option value="5">June</option>
-                <option value="6">July</option>
-                <option value="7">August</option>
-                <option value="8">September</option>
-                <option value="9">October</option>
-                <option value="10">November</option>
-                <option value="11">December</option>
-            </select>
-            <select class="custom-select col" id="eventDate01">
-                <option selected>Choose...</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="4">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-                <option value="21">21</option>
-                <option value="22">22</option>
-                <option value="23">23</option>
-                <option value="24">24</option>
-                <option value="25">25</option>
-                <option value="26">26</option>
-                <option value="27">27</option>
-                <option value="28">28</option>
-                <option value="29">29</option>
-                <option value="30">30</option>
-                <option value="31">31</option>
-            </select>
-            <select class="custom-select col" id="eventYear01">
-                <option value=" 2021" selected>2021</option>
-                <!-- <option value="2022"></option> -->
-            </select>
+            <input type="date" id="startDateTime" aria-label="startingDate">
+            <p class="col">End date</p>
+            <input type="date" id="endDateTime" aria-label="endingDate">
+    </div>
+
+    <div class="input-group row">
+        <div class="input-group-prepend">
+            <input type="checkbox" id="familyEvents" aria-label="Checkbox for selecting family friendly events only">
+            <h4>I would only like to see family friendly options.</h4>
         </div>
-    <div class="input-group row ">
-            <p class="col">end date</p>
-            <select class="custom-select col" id="eventMonth02">
-                <option selected>Choose...</option>
-                <option value="1">January</option>
-                <option value="2">February</option>
-                <option value="3">March</option>
-                <option value="4">April</option>
-                <option value="5">May</option>
-                <option value="6">June</option>
-                <option value="7">July</option>
-                <option value="8">August</option>
-                <option value="9">September</option>
-                <option value="10">October</option>
-                <option value="11">November</option>
-                <option value="12">December</option>
-            </select>
-            <select class="custom-select col" id="eventDate02">
-                <option selected>Choose...</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="4">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-                <option value="21">21</option>
-                <option value="22">22</option>
-                <option value="23">23</option>
-                <option value="24">24</option>
-                <option value="25">25</option>
-                <option value="26">26</option>
-                <option value="27">27</option>
-                <option value="28">28</option>
-                <option value="29">29</option>
-                <option value="30">30</option>
-                <option value="31">31</option>
-            </select>
-            <select class="custom-select col" id="eventyear02">
-                <option selected>2021</option>
-                <!-- <option value="2022"></option> -->
-            </select>
-        </div>
+    </div><br>
 
-
-        <div class="input-group row">
-            <div class="input-group-prepend">
-                <input type="checkbox" id="familyEvents" aria-label="Checkbox for selecting family friendly events only">
-                <h4>I would only like to see family friendly options.</h4>
-            </div>
-        </div><br>
-
-      <button type="submit" class="btn btn-primary" id="getEvents">Submit</button>
+      <button type="submit" class="btn btn-primary" id="getEvents">Get Events</button>
     </div>
       
 
