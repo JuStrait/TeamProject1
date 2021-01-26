@@ -2,7 +2,8 @@
 var getEvents = document.getElementById('getEvents');
 
 // ticketmaster fetch functionality
-function generateURL () {
+function generateURL (event) {
+    event.preventDefault();
     var apiKey = 'WPcvWaSga9OR6jQP2PDNVNimKtFhAaMj';
     var site = [(`https://app.ticketmaster.com/discovery/v2/events?apikey=${apiKey}`)];
     addKeyword(site);
@@ -10,7 +11,7 @@ function generateURL () {
 
 // https://app.ticketmaster.com/discovery/v2/events?apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0
 
-// function to add keyword taking url array from ^
+// function to add keyword taking url array
 function addKeyword(key) {
     var keywordInput = document.querySelector('#eventKeyword');
     if (!keywordInput.value) {
@@ -26,7 +27,7 @@ function addKeyword(key) {
 }
 // &keyword=transiberian%20orchestra
 
-// function to add zipcode taking url array from ^
+// function to add zipcode taking url array
 function zipCode (zip) {
     var zipInput = document.getElementById('eventZip').value;
     if (!zipInput) {
@@ -52,7 +53,7 @@ function radius(mi) {
 };
 // &radius=50&locale=*
 
-// function to add start date taking url array from ^
+// function to add start date taking url array
 function rangeStart(start) {
     var c = document.getElementById('startDateTime').value;
     if (!c) {
@@ -64,7 +65,7 @@ function rangeStart(start) {
 };
 // &startDateTime=2021-10-01T09:57:00Z
 
-// function to add start date taking url array from ^
+// function to add start date taking url array
 function rangeEnd(end) {
     var f = document.getElementById('endDateTime').value;
     if (!f) {
@@ -76,7 +77,7 @@ function rangeEnd(end) {
 };
 // &endDateTime=2021-12-01T08:23:00Z
 
-// function to add city taking url array from ^
+// function to add city taking url array
 function addCity(city) {
     var cityInput = document.getElementById('eventCity').value;
     if (!cityInput) {
@@ -89,7 +90,7 @@ function addCity(city) {
 };
 // &city=tulsa
 
-// function to add stateInput taking url array from ^
+// function to add stateInput taking url array
 function addState(state) {
     var stateInput = document.getElementById('eventState').value;
     if (!stateInput) {
@@ -102,7 +103,7 @@ function addState(state) {
 };
 // &stateCode=OK
 
-// function to add family friendly taking url array from ^
+// function to add family friendly taking url array.
 function ifFamily(yn) {
     var familyEvents = document.getElementById('familyEvents').value;
     if (!familyEvents) {
@@ -114,22 +115,27 @@ function ifFamily(yn) {
 };
 // &includeFamily=yes
 
-// function to join ^ into string for fetch
+// function to join into string for fetch
 function join(ny) {
     var url = ny.join("");
+    console.log(url);
     eventFetch(url);
+    
 };
 
 // function to fetch events from ticketmaster
 function eventFetch(call) {
+    console.log(call);
     fetch(call)
-        .then(function(res){
-            return res.json();
-        }).then(function(res){
-            console.log(res);
-        }).catch(function(){
-            console.log('error')
-        })
+    .then(response => response.json())
+    .then(data => console.log(data));
+//         .then(function(res){
+//             console.log("inside");
+//         // }).then(function(res){
+//         //     console.log(res);
+//         }).catch(function(){
+//             console.log('error')
+//         })
 }
 
 
