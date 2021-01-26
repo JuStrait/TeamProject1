@@ -103,7 +103,7 @@ function addState(state) {
 };
 // &stateCode=OK
 
-// function to add family friendly taking url array
+// function to add family friendly taking url array.
 function ifFamily(yn) {
     var familyEvents = document.getElementById('familyEvents').value;
     if (!familyEvents) {
