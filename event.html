@@ -47,27 +47,48 @@
       <form class="col s12">
 
         <div class="row">
+          <div class="input-field col s6">
+            <input placeholder="Enter Keyword Here" id="eventKeyword" type="text" class="validate">
+            <label class="active" for="eventKeyword">Search for a specific artist, event, or play</label>
+          </div>
+        </div>
 
-                <div class="input-field col s4">
-                  <input id="input_text" type="text" data-length="10">
-                  <label for="input_text">City or Zip Code</label>
-                </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input placeholder="Enter Event City Here" id="eventCity" type="text" class="validate">
+            <label for="eventCity">City</label>
+          </div>
+          <div class="input-field col s6">
+            <input placeholder="Enter Event City Here" id="eventState" type="text" class="validate">
+            <label for="eventState">State</label>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="input-field col s6">
+            <input placeholder="Enter Event Zipcode" id="eventZip" type="text" class="validate">
+            <label for="eventZip">Zip code</label>
+          </div>
+          <div class="input-field col s6">
+            <input placeholder="Enter Miles From City" id="eventDistance" type="text" class="validate">
+            <label for="eventDistance">How far is the event from city? (miles)</label>
+          </div>
+        </div>
 
-          <div class="input-field col s4">
-            <select class="browser-default">
-              <option value="All">All Dates</option>
-              <option value="Weekend">This Weekend</option>
-              <option value="Range">Date Range (below)</option>
-            </select>
-            <input type="text" class="datepicker" placeholder="Click me to pick a range of dates">
+        <div class="row">
+
+          <div class="input-field col s6">
+            <input type="text" id="startDateTime" class="datepicker">
+            <label for="startDateTime">Pick Your Events Start Date (Click Me!)</label>
+          </div>
+          <div class="input-field col s6">
+            <input type="text" id="endDateTime" class="datepicker">
+            <label for="endDateTime">Pick Your Events End Date (Click Me!)</label>
           </div>
 
-          <div class="input-field col s4">
-              <input type="text" placeholder="Keywords">
-              <button class="btn waves-effect waves-light" type="search" name="action">Search
-                <i class="material-icons right">send</i>
-              </button>
-          </div>            
+          <button id="getEvents" class="btn waves-effect waves-light" type="submit" name="action">Get Events
+            <i class="material-icons right">send</i>
+          </button>
 
         </div>
 
