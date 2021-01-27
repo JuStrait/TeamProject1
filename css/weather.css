@@ -1,36 +1,47 @@
 .searchArea {
-    background-color: #e6f2ff;
-    padding: 20px;
+  background-color: #fff8eefb;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 .uvindex {
-    padding: 5px;
+  padding: 5px;
 }
 
 .one-fifth {
-    box-sizing: border-box;
-    width: 20%;
-    margin: 5px;
-    padding: 5px;
-    
+  box-sizing: border-box;
+  width: 20%;
+  margin: 5px;
+  padding: 5px;
 }
 
 .one-fifth:first-child {
-    margin-left: 0px;
+  margin-left: 0px;
 }
 
-.one-fifth:last-child{
-    margin-right: 0px;
+.one-fifth:last-child {
+  margin-right: 0px;
 }
 
 .forecast {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 10px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px 0px;
 }
 
-#searchBtn{
-    padding: 6px 5px 0px 5px;
+#searchBtn {
+  padding: 6px 5px 5px 5px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
 
+.card {
+  border: 1px solid black;
+  background-color: #fff8eefb;
+  border-radius: 5px;
+  box-shadow: -2px 2px 5px 0.5px;
+  align-content: center;
 }
