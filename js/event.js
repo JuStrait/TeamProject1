@@ -94,11 +94,11 @@ function addCity(city) {
 function addState(state) {
     var stateInput = document.getElementById('eventState').value;
     if (!stateInput) {
-        ifFamily(state);
+        join(state);
     } else {
         var biggerPlace = stateInput.toLowerCase();
         state.push("&stateCode=", biggerPlace);
-        ifFamily(state);
+        join(state);
     }
 };
 // &stateCode=OK
@@ -128,19 +128,61 @@ function eventFetch(call) {
     console.log(call);
     fetch(call)
     .then(response => response.json())
-    .then(data => console.log(data));
-//         .then(function(res){
-//             console.log("inside");
-//         // }).then(function(res){
-//         //     console.log(res);
-//         }).catch(function(){
-//             console.log('error')
-//         })
-}
+    .then(data => {
+        console.log(data);
+        // console.log(data._embedded);
+        displayOptions(data);
+// //         .then(function(res){
+// //             console.log("inside");
+// //         // }).then(function(res){
+// //         //     console.log(res);
+// //         }).catch(function(){
+// //             console.log('error')
+// //         })
+})}
 
 
-// next steps: pseudo-code
-//      display responses
+//      display responses: need a div class=row under the h2 class=header Events to choose from
+// container row needs id="populateEvents"
+function displayOptions(data) {
+    var eventDisplay = document.getElementById('populateEvents');
+    var thing = data._embedded.events //this is an array
+    for(var i=0; i<thing.length; i++) {
+        var optionCard = document.createElement('div');
+        optionCard.className = "col s12 m6";
+        //   div for card size (class="card small")
+        var cardSize = document.createElement('div');
+        cardSize.className = "card medium";
+        // //   div for image (class="card-image") includes img and span
+        var imageSpot = document.createElement('div');
+        imageSpot.className = "card-image";
+        // //  img src
+        var pic = document.createElement('img');
+        var pictures = thing[i].images;
+        pic.setAttribute('src', pictures[0].url);
+        // //   span for Title (class="card-title")
+        var what = document.createElement('span');
+        what.className = ("card-title");
+        what.textContent = thing[i].name;
+        console.log(thing[i].name);
+        // //   div for content (class="card-content")
+        // //   div for selection (class="card-action")
+
+        // // appendChild image div to cardSize div
+        imageSpot.appendChild(pic);
+        // imageSpot.appendChild(span)
+        imageSpot.appendChild(what);
+
+        // appendChild content div to cardSize;
+        cardSize.appendChild(imageSpot);
+        // // appendChild selection div to cardSize
+        // // append cardSize div to optionCard
+        optionCard.appendChild(cardSize);
+        // append optionCard div to location
+        eventDisplay.appendChild(optionCard);
+      }
+      }
+
 //      save selection > passing latlong to zomato search
 //      display selection page somewhere
 //      do we want to offer option here for saving search by name or wait until all parts are run?
