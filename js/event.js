@@ -147,3 +147,87 @@ function eventFetch(call) {
 //      do/can we save a partial "date" to complete later?
 
 getEvents.addEventListener("click", generateURL);
+
+    var apiKey = 'WPcvWaSga9OR6jQP2PDNVNimKtFhAaMj';
+    var site = [(`https://app.ticketmaster.com/discovery/v2/events?apikey=${apiKey}`)];
+
+    // Here we run our AJAX call to the OpenWeatherMap API
+    $.ajax({
+    url: site,
+    method: "GET"
+    })
+
+    // We store all of the retrieved data inside of an object called "response"
+    .then(function(response) {
+       
+        // Log the queryURL
+        console.log(site);
+
+        // Log the resulting object
+        console.log(response);
+
+        // Transfer content to HTML
+        $(".venueImage").html("Venue: " + response._embedded.events[0]._embedded.venues[0].images[0].url);
+        $(".name").text("Event Name: " + response._embedded.events[0].name);
+        $(".priceRanges").text("Price Ranges: Max: $" + response._embedded.events[0].priceRanges[0].max + " Min: $" + response._embedded.events[0].priceRanges[0].min);
+        $(".initialStartDate").text("Event Start Date:  " + response._embedded.events[0].dates.start.localDate + " Event Start Time: " + response._embedded.events[0].dates.start.localTime);
+
+        // Log the data in the console as well
+        console.log("Venue: " + response._embedded.events[0]._embedded.venues[0].images[0].url);
+        console.log("Event Name: " + response._embedded.events[0].name);
+        console.log("Price Ranges: Max: $" + response._embedded.events[0].priceRanges[0].max + " Min: $" + response._embedded.events[0].priceRanges[0].min);
+        console.log("Event Start Date:  " + response._embedded.events[0].dates.start.localDate + " Event Start Time: " + response._embedded.events[0].dates.start.localTime);
+    });
+
+
+        // function displayEventInfo() {
+        // var events = $(this).attr("data-name");
+        // var site = "https://app.ticketmaster.com/discovery/v2/events?" + events + "apikey=WPcvWaSga9OR6jQP2PDNVNimKtFhAaMj";
+
+
+        // Here we run our AJAX call to the OpenWeatherMap API
+        // $.ajax({
+        //     url: site,
+        //     method: "GET"
+        //     })
+            
+        //     // We store all of the retrieved data inside of an object called "response"
+        //     .then(function(response) {
+
+//          var eventDiv = $("<div>");
+
+//          var venueImage = response._embedded.events[0]._embedded.venues[0].images[0].url;
+
+//          var image = $("<img>").attr("src", venueImage);
+
+//          eventDiv.append(image);
+
+//          var name = response._embedded.events[0].name;
+
+//          var pOne = $("<p>").text("Event Name: " + name);
+
+//          eventDiv.append(pOne);
+
+                   
+//         var priceMax = response._embedded.events[0].priceRanges[0].max;
+
+//         var priceMin = response._embedded.events[0].priceRanges[0].min;
+                   
+//         var pTwo = $("<p>").text("Price Ranges: Max: $" + priceMax + " Min: $" + priceMin);
+         
+                   
+//         eventDiv.append(pTwo);
+         
+//         var intialStartDate = response._embedded.events[0].dates.start.localDate;
+
+//         var intialStartTime = response._embedded.events[0].dates.start.localTime;
+         
+//         var pThree = $("<p>").text("Event Start Date: " + intialStartDate + " Event Start Time: " + intialStartTime);
+         
+//         eventDiv.append(pThree);
+
+//         $("#event-info").prepend(eventDiv);
+//     });
+
+// }
+
