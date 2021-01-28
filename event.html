@@ -86,13 +86,7 @@
             <label for="endDateTime">Pick the end of the range here.</label>
           </div>
 
-          <p>
-            <label>
-              <input id="familyEvents" type="checkbox" class="filled-in" checked="checked" />
-              <span>I would only like to see family friendly options.</span>
-            </label>
-          </p>
-
+          <!-- removed family friendly options checkbox -->
           <button id="getEvents" class="btn waves-effect waves-light" type="submit" name="action">Get Events
             <i class="material-icons right">send</i>
           </button>
@@ -107,22 +101,22 @@
 
   <br><br>
   
-  <div class="container">
-
-    <div class="col s12 m7">
+  <div class="row">
+    <div class="col s12 m7" id="populateEvents"> <!--what size does this need to be? and how can we center content-->
       <h2 class="header">Events To Choose From!</h2>
-      <div class="card horizontal">
+      <!-- We don't want horizontal cards with images imo -->
+      <!-- <div class="card horizontal">
         <div class="card-stacked">
           <div class="card-content" id="eventDiv">
             
             <img src="venueImage">
             <div class="name"></div>
             <div class="priceRanges"></div>
-            <div class="initialStartDate"></div>
+            <div class="initialStartDate"></div> 
           
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
   </div>
