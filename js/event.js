@@ -94,26 +94,14 @@ function addCity(city) {
 function addState(state) {
     var stateInput = document.getElementById('eventState').value;
     if (!stateInput) {
-        ifFamily(state);
+        join(state);
     } else {
         var biggerPlace = stateInput.toLowerCase();
         state.push("&stateCode=", biggerPlace);
-        ifFamily(state);
+        join(state);
     }
 };
 // &stateCode=OK
-
-// function to add family friendly taking url array.
-function ifFamily(yn) {
-    var familyEvents = document.getElementById('familyEvents').value;
-    if (!familyEvents) {
-        join(yn);
-    } else {
-        yn.push("&includeFamily=yes");
-        join(yn);
-    }
-};
-// &includeFamily=yes
 
 // function to join into string for fetch
 function join(ny) {
@@ -128,15 +116,98 @@ function eventFetch(call) {
     console.log(call);
     fetch(call)
     .then(response => response.json())
-    .then(data => console.log(data));
-//         .then(function(res){
-//             console.log("inside");
-//         // }).then(function(res){
-//         //     console.log(res);
-//         }).catch(function(){
-//             console.log('error')
-//         })
-}
+    .then(data => {
+        console.log(data);
+        if(!data._embedded) {
+            var eventDisplay = document.getElementById('populateEvents');
+            var respo = document.createElement('h2');
+            var negative = document.createTextNode('No events located. Please try different search criteria.');
+            respo.appendChild(negative);
+            eventDisplay.appendChild(respo);
+        } else {
+           displayOptions(data); 
+        }
+})}
+
+//      display responses: need a div class=row under the h2 class=header Events to choose from
+// container row needs id="populateEvents"
+function displayOptions(data) {
+    var eventDisplay = document.getElementById('populateEvents');
+    var thing = data._embedded.events //this is an array
+    for(var i=0; i<thing.length; i++) {
+        // create card for each event option
+        var optionCard = document.createElement('div');
+        optionCard.className = "col s12 m6";
+        // create card size div
+        var cardSize = document.createElement('div');
+        cardSize.className = "card medium";
+        // create div for image
+        var imageSpot = document.createElement('div');
+        imageSpot.className = "card-image";
+        // create image and append to div for image
+        var pic = document.createElement('img');
+        var pictures = thing[i].images;
+        pic.setAttribute('src', pictures[0].url);
+        imageSpot.appendChild(pic);
+        // create div for event details
+        var eventDetails = document.createElement('div');
+        // create span for title, attach title
+        var what = document.createElement('span');
+        what.className = ("card-title");
+        var titleName = document.createTextNode(thing[i].name);
+        what.appendChild(titleName);
+        // append title div to event details
+        eventDetails.appendChild(what);
+        // create div for venue
+        var where = document.createElement('div');
+        var whereTxt = document.createTextNode(thing[i]._embedded.venues.name);
+        where.appendChild(whereTxt);
+        // append venue div to event details div
+        eventDetails.appendChild(where);
+        // create div for date and time
+        // var when = document.createElement('div');
+        // var d = new Date(thing[i].dates.start.localDate);
+        // var whenTxt = document.createTextNode(d.toLocaleString);
+        // console.log(whenTxt);
+        // when.appendChild(whenTxt);
+
+
+        // // append dateTime div to details div
+        // eventDetails.appendChild(when);
+        // create link div 
+        var links = document.createElement('div');
+        links.setAttribute('class', 'card-action');
+        // create links, attach to div
+        var theLink = document.createElement('a');
+        theLink.setAttribute('value', thing[i].id);
+        theLink.setAttribute('href', '#')
+        // append div with image to card size div
+        cardSize.appendChild(imageSpot);
+        // append event details div to card size div
+        cardSize.appendChild(eventDetails);
+        // append links div to card size div
+
+        // append card size div to event option card
+        // append event option card to eventDisplay area
+        // append optionCard div to location
+        eventDisplay.appendChild(optionCard);
+        optionCard.appendChild(cardSize);
+        // eventDetails.appendChild(time);
+
+        imageSpot.appendChild(pic);
+
+
+        // cardSize.appendChild(select);
+
+        // appendChild content div to cardSize;
+        cardSize.appendChild(imageSpot);
+        cardSize.appendChild(eventDetails);
+        // make and append selection button
+
+        // // appendChild selection div to cardSize
+      }
+      }
+
 
 
 // next steps: pseudo-code
