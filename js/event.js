@@ -188,4 +188,35 @@ function displayOptions(data) {
 //      do we want to offer option here for saving search by name or wait until all parts are run?
 //      do/can we save a partial "date" to complete later?
 
+var apiKey = 'WPcvWaSga9OR6jQP2PDNVNimKtFhAaMj';
+var site = [(`https://app.ticketmaster.com/discovery/v2/events?apikey=${apiKey}`)];
+
+// Here we run our AJAX call to the OpenWeatherMap API
+$.ajax({
+url: site,
+method: "GET"
+})
+
+// We store all of the retrieved data inside of an object called "response"
+.then(function(response) {
+   
+    // Log the queryURL
+    console.log(site);
+
+    // Log the resulting object
+    console.log(response);
+
+    // Transfer content to HTML
+    $(".venueImage").html("Venue: " + response._embedded.events[0]._embedded.venues[0].images[0].url);
+    $(".name").text("Event Name: " + response._embedded.events[0].name);
+    $(".priceRanges").text("Price Ranges: Max: $" + response._embedded.events[0].priceRanges[0].max + " Min: $" + response._embedded.events[0].priceRanges[0].min);
+    $(".initialStartDate").text("Event Start Date:  " + response._embedded.events[0].dates.start.localDate + " Event Start Time: " + response._embedded.events[0].dates.start.localTime);
+
+    // Log the data in the console as well
+    console.log("Venue: " + response._embedded.events[0]._embedded.venues[0].images[0].url);
+    console.log("Event Name: " + response._embedded.events[0].name);
+    console.log("Price Ranges: Max: $" + response._embedded.events[0].priceRanges[0].max + " Min: $" + response._embedded.events[0].priceRanges[0].min);
+    console.log("Event Start Date:  " + response._embedded.events[0].dates.start.localDate + " Event Start Time: " + response._embedded.events[0].dates.start.localTime);
+});
+
 getEvents.addEventListener("click", generateURL);
