@@ -1,103 +1,74 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
-
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-
   <title>Foooooooood</title>
-
-  <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-
 </head>
 
-<body>
+<body class="purple lighten-5">
 
-  <nav class="light-blue lighten-1" role="navigation">
-
-    <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo right">"Insert Logo Here"</a>
-
+  <nav class="deep-purple darken-1 z-depth-3" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo right"><i class="large material-icons">wc</i>Dating Simplified</a>
       <ul class="left hide-on-med-and-down">
         <li><a href="index.html">Main Page</a></li>
         <li><a href="event.html">Ticketmaster</a></li>
         <li><a href="food.html">Zomato</a></li>
         <li><a href="weather.html">OpenWeather</a></li>
       </ul>
-
       <ul id="nav-mobile" class="sidenav">
         <li><a href="index.html">Main Page</a></li>
         <li><a href="event.html">Ticketmaster</a></li>
         <li><a href="food.html">Zomato</a></li>
         <li><a href="weather.html">OpenWeather</a></li>
       </ul>
-
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-
     </div>
-
   </nav>
 
   <div class="section no-pad-bot" id="index-banner">
-
-    <div class="container">
-
-      <br><br>
-
-      <h1 class="header orange-text">Restaurants in the Area</h1>
-        
-      <br><br>
-
+    <div class="container-fluid">
+      <h3 class="header center deep-purple-text">Find food powered by <a href="https://www.zomato.com/kingman-ks" alt="Zomato" class="red-text">Zomato</a></h3>
     </div>
-
   </div>
 
-  <div class="container">
-
-    <div class="widget_wrap" style="width:320px;height:797px;display:inline-block;"><iframe src="https://www.zomato.com/widgets/res_search_widget.php?city_id=5650&theme=red&sort=popularity" style="position:relative;width:100%;height:100%;" border="0" frameborder="0"></iframe></div>
-
-    <br><br>
-
+  <div class="container-fluid">
+    <div class="row center">
+      <div class=" widget_wrap" style="width:80%;height:100vh;display:inline-block; center">
+        <iframe src="https://www.zomato.com/widgets/res_search_widget.php?city_id=5650&theme=red&sort=popularity" style="position:relative;width:100%;height:100%;" border="0" frameborder="0"></iframe>
+      </div>
+    </div>
   </div>
 
   <footer class="page-footer teal lighten-1">
-
-    <div class="container">
-
+    <div class="container-fluid">
       <div class="row">
-
         <div class="col l6 s12">
-
-          <h5 class="white-text">Company Bio</h5>
+          <h5 class="white-text">Our Team</h5>
           <p class="grey-text text-lighten-4">This project is part of the KU Coding Bootcamp coursework made by students:
             <li>Brian Hamm</li>
             <li>Maggie Wilder</li>
             <li>Justin Strait</li>
           </p>
-
-    <div class="footer-copyright">
-
-      <div class="container">
-
-        Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
-
+          <div class="footer-copyright">
+            <div class="container">
+              Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+            </div>
+          </div>
+        </div>
       </div>
-
     </div>
-
   </footer>
 
-
-  <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
 
-  </body>
+</body>
 
 </html>
 
