@@ -4,22 +4,21 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   <title>Events</title>
-
-  <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
-<body>
-  <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo right">"Insert Logo Here"</a>
+
+<body class="purple lighten-5">
+
+  <nav class="deep-purple darken-1 z-depth-3" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo right"><i class="large material-icons">wc</i>Dating Simplified</a>
       <ul class="left hide-on-med-and-down">
         <li><a href="index.html">Main Page</a></li>
         <li><a href="event.html">Ticketmaster</a></li>
         <li><a href="food.html">Zomato</a></li>
         <li><a href="weather.html">OpenWeather</a></li>
       </ul>
-
       <ul id="nav-mobile" class="sidenav">
         <li><a href="index.html">Main Page</a></li>
         <li><a href="event.html">Ticketmaster</a></li>
@@ -29,125 +28,105 @@
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav>
-  <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-      <br><br>
-      <h1 class="header center orange-text">Dating Event Planner</h1>
-      <div class="row center">
-        <h5 class="header col s12 light">"Explaination on why we created this application goes here"</h5>
-      </div>
-      <br><br>
 
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container-fluid">
+      <h1 class="header center deep-purple-text"><img src="Maggie/Logo.png" alt="logo"></h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Find something to do!</h5>
+      </div>
     </div>
   </div>
 
-
-  <div class="container">
-
+  <div class="container-fluid">
       <form class="col s12">
-
         <div class="row">
-          <div class="input-field col s6">
+          <div class="input-field col s4 push-s4">
+            <i class="material-icons prefix">search</i>
             <input placeholder="Enter Keyword Here" id="eventKeyword" type="text" class="validate">
             <label class="active" for="eventKeyword">Search for a specific artist, event, or play</label>
           </div>
         </div>
-
-        <div class="row">
-          <div class="input-field col s6">
-            <input placeholder="Enter Event City Here" id="eventCity" type="text" class="validate">
-            <label for="eventCity">City</label>
-          </div>
-          <div class="input-field col s6">
-            <input placeholder="Enter Event City Here" id="eventState" type="text" class="validate">
-            <label for="eventState">State</label>
-          </div>
-        </div>
-        
-        <div class="row">
-          <div class="input-field col s6">
-            <input placeholder="Enter Event Zipcode" id="eventZip" type="text" class="validate">
-            <label for="eventZip">Zip code</label>
-          </div>
-          <div class="input-field col s6">
-            <input placeholder="Enter Miles From City" id="eventDistance" type="text" class="validate">
-            <label for="eventDistance">How far is the event from city? (miles)</label>
-          </div>
-        </div>
-
-        <div class="row">
-
-          <div class="input-field col s6">
-            <input type="date" id="startDateTime" class="datepicker">
-            <label for="startDateTime">Pick your day or the beginning of possible days.</label>
-          </div>
-          <div class="input-field col s6">
-            <input type="date" id="endDateTime" class="datepicker">
-            <label for="endDateTime">Pick the end of the range here.</label>
-          </div>
-
-          <p>
-            <label>
-              <input id="familyEvents" type="checkbox" class="filled-in" checked="checked" />
-              <span>I would only like to see family friendly options.</span>
-            </label>
-          </p>
-
-          <button id="getEvents" class="btn waves-effect waves-light" type="submit" name="action">Get Events
-            <i class="material-icons right">send</i>
-          </button>
-
-        </div>
-
       </form>
+  </div>        
 
-    <br><br>
-
-  </div>
-
-  <br><br>
-  
-  <div class="container">
-
-    <div class="col s12 m7">
-      <h2 class="header">Events To Choose From!</h2>
-      <div class="card horizontal">
-        <div class="card-stacked">
-          <div class="card-content" id="eventDiv">
-            
-            <img src="venueImage">
-            <div class="name"></div>
-            <div class="priceRanges"></div>
-            <div class="initialStartDate"></div>
-          
-          </div>
-        </div>
-      </div>
+  <div class="row">
+    <div class="input-field col s3 push-s3">
+      <i class="material-icons prefix">edit_location</i>
+        <input placeholder="Enter Event City Here" id="eventCity" type="text" class="validate">
+        <label for="eventCity">City</label>
     </div>
-
+    <div class="input-field col s3 push-s3 ">
+    <i class="material-icons prefix">location_searching</i>
+      <input placeholder="Enter Event City Here" id="eventState" type="text" class="validate">
+      <label for="eventState">State</label>
+    </div>
+  </div>
+        
+  <div class="row">
+    <div class="input-field col s3 push-s3">
+      <i class="material-icons prefix">public</i>
+      <input placeholder="Enter Event Zipcode" id="eventZip" type="text" class="validate">
+      <label for="eventZip">Zip code</label>
+    </div>
+    <div class="input-field col s3 push-s3">
+      <i class="material-icons prefix">drive_eta</i>
+      <input placeholder="Enter Miles From City" id="eventDistance" type="text" class="validate">
+      <label for="eventDistance">How far is the event from city? (miles)</label>
+    </div>
   </div>
 
+  <div class="row">
+    <div class="input-field col s3 push-s3">
+      <input type="date" id="startDateTime" class="datepicker">
+      <label for="startDateTime">Pick your day or the beginning of possible days.</label>
+    </div>
+    <div class="input-field col s3 push-s3">
+      <input type="date" id="endDateTime" class="datepicker">
+      <label for="endDateTime">Pick the end of the range here.</label>
+    </div>
+  </div>
 
-  <footer class="page-footer orange">
+  <div class="row center">
+    <button id="getEvents" class="btn-large waves-effect waves-light pink accent-3 hoverable z-depth-1-half"type="submit" name="action">Get Events
+      <i class="material-icons right">send</i>
+    </button>
+  </div>
+
+  <div class="row">
+    <div class="col s12 center" id="populateEvents">
+      <h2 class="header">Events To Choose From!</h2>
+    </div>
+  </div>
+
+  <footer class="page-footer teal lighten-1">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
-
-    <div class="footer-copyright">
-      <div class="container">
-      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+          <h5 class="white-text">Our Team</h5>
+          <p class="grey-text text-lighten-4">
+            This project is part of the KU Coding Bootcamp coursework made by
+            students:
+            <li>Brian Hamm</li>
+            <li>Maggie Wilder</li>
+            <li>Justin Strait</li>
+          </p>
+          <div class="footer-copyright">
+            <div class="container">
+              Made by
+              <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </footer>
 
-
-  <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
   <script src="js/event.js"></script>
 
-  </body>
+</body>
 </html>

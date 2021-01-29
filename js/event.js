@@ -227,4 +227,5 @@ function saveChoice (info) {
 //      do we want to offer option here for saving search by name or wait until all parts are run?
 //      do/can we save a partial "date" to complete later?
 
+
 getEvents.addEventListener("click", generateURL);
