@@ -1,5 +1,6 @@
 // variable for submit button - ticketmasters
 var getEvents = document.getElementById('getEvents');
+var chooseEvent = document.getElementById('populateEvents');
 
 // ticketmaster fetch functionality
 function generateURL (event) {
@@ -137,114 +138,93 @@ function displayOptions(data) {
     var eventDisplay = document.getElementById('populateEvents');
     var thing = data._embedded.events //this is an array
     for(var i=0; i<thing.length; i++) {
-        // create card for each event option
-        var optionCard = document.createElement('div');
-        optionCard.className = "col s12 m6";
-        // create card size div
-        var cardSize = document.createElement('div');
-        cardSize.className = "card medium";
-        // create div for image
-        var imageSpot = document.createElement('div');
-        imageSpot.className = "card-image";
-        // create image and append to div for image
-        var pic = document.createElement('img');
-        var pictures = thing[i].images;
-        pic.setAttribute('src', pictures[0].url);
-        imageSpot.appendChild(pic);
-        // create div for event details
-        var eventDetails = document.createElement('div');
-        // create span for title, attach title
-        var what = document.createElement('span');
-        what.className = ("card-title");
-        var titleName = document.createTextNode(thing[i].name);
-        what.appendChild(titleName);
-        // append title div to event details
-        eventDetails.appendChild(what);
-        // create div for venue
-        var where = document.createElement('div');
-        var whereTxt = document.createTextNode(thing[i]._embedded.venues.name);
-        where.appendChild(whereTxt);
-        // append venue div to event details div
-        eventDetails.appendChild(where);
-        // create div for date and time
-        // var when = document.createElement('div');
-        // var d = new Date(thing[i].dates.start.localDate);
-        // var whenTxt = document.createTextNode(d.toLocaleString);
-        // console.log(whenTxt);
-        // when.appendChild(whenTxt);
-
-
-        // // append dateTime div to details div
-        // eventDetails.appendChild(when);
-        // create link div 
-        var links = document.createElement('div');
-        links.setAttribute('class', 'card-action');
-        // create links, attach to div
-        var theLink = document.createElement('a');
-        theLink.setAttribute('value', thing[i].id);
-        theLink.setAttribute('href', '#')
-        // append div with image to card size div
-        cardSize.appendChild(imageSpot);
-        // append event details div to card size div
-        cardSize.appendChild(eventDetails);
-        // append links div to card size div
-
-        // append card size div to event option card
-        // append event option card to eventDisplay area
-        // append optionCard div to location
+        // create event card class = card medium
+        var optionCard = document.createElement('div'); // card for each event pulled from tm
+        optionCard.setAttribute('class', 'card medium col s12 m6 ');
+        optionCard.setAttribute('value', i) //assigning value from array to connect click
+        // make, fill, and append image div class= card-image
+        var imageDiv = document.createElement('div');
+        imageDiv.setAttribute('class', 'card-image');
+        var image = document.createElement('img');
+        var pictures = thing[i].images; //this is an array
+        image.setAttribute('src', pictures[0].url);
+        imageDiv.appendChild(image);
+        optionCard.appendChild(imageDiv);
+        // make, fill, and append title div class=card-title (does it need to be a span in the div?)
+        var titleDiv = document.createElement('div');
+        titleDiv.setAttribute('class', 'card-title');
+        var titleText = document.createTextNode(thing[i].name);
+        titleDiv.appendChild(titleText);
+        optionCard.appendChild(titleDiv);
+        // make details div with individual p-tags for location, date, time
+        var detailsDiv = document.createElement('div');
+        // fill and append details div
+        var venue = document.createElement('p');
+        var venueText = document.createTextNode(thing[i]._embedded.venues[0].name);
+        venue.appendChild(venueText);
+        detailsDiv.appendChild(venue);
+        var town = document.createElement('p');
+        var townText = document.createTextNode(thing[i]._embedded.venues[0].city.name);
+        town.appendChild(townText);
+        detailsDiv.appendChild(town);
+        var when = document.createElement('p');
+        var dateTime = new Date(thing[i].dates.start.dateTime);
+        var whenText = document.createTextNode(dateTime.toLocaleDateString());
+        when.appendChild(whenText);
+        detailsDiv.appendChild(when);
+        optionCard.appendChild(detailsDiv);
+        // add event card to eventDisplay
         eventDisplay.appendChild(optionCard);
-        optionCard.appendChild(cardSize);
-        // eventDetails.appendChild(time);
-
-        imageSpot.appendChild(pic);
-
-
-        // cardSize.appendChild(select);
-
-        // appendChild content div to cardSize;
-        cardSize.appendChild(imageSpot);
-        cardSize.appendChild(eventDetails);
-        // make and append selection button
-
-        // // appendChild selection div to cardSize
+        optionCard.addEventListener("click", function(ev) {
+          ev.preventDefault();
+          var x = this.getAttribute('value');
+          var data = thing[x];
+          console.log(data);
+          saveChoice(data);
+        //   function to save event and move to next api using the thing here
+      }) 
       }
-      }
+    }
 
+// need event listener on chooseEvent, create value object by save as name with id#, name of event, location info, date
+function saveChoice (info) {
+    var saveAs = prompt("What name would you like to save for this date?");
+    if (!saveAs) {
+        return;
+    } else {
+    console.log(info);
+    var date = saveAs;
+    var deets = {
+        "id": info.id,
+        "title": info.name,
+        "date": info.dates.start.localDate,
+        "venue": info._embedded.venues[0].name,
+        "postalCode": info._embedded.venues[0].postalCode,
+        "url": info.url,
+        "img": info.images[0].url,
+    };
+    var key = 'savedDates';
+    var item = [date, deets];
+    var storage = localStorage.getItem(key);
+    var dates = [];
+    if (storage) {
+        dates = JSON.parse(storage);
+    }
+    dates.push(item);
+    localStorage.setItem(key, JSON.stringify(dates));
+    };
+    console.log(dates);
+
+    }
+
+// save value object to local storage, fill div on page displaying local storage list of saved names  
+// set value to look up restaurants
+
+    
 
 //      save selection > passing latlong to zomato search
 //      display selection page somewhere
 //      do we want to offer option here for saving search by name or wait until all parts are run?
 //      do/can we save a partial "date" to complete later?
-
-var apiKey = 'WPcvWaSga9OR6jQP2PDNVNimKtFhAaMj';
-var site = [(`https://app.ticketmaster.com/discovery/v2/events?apikey=${apiKey}`)];
-
-// Here we run our AJAX call to the OpenWeatherMap API
-$.ajax({
-url: site,
-method: "GET"
-})
-
-// We store all of the retrieved data inside of an object called "response"
-.then(function(response) {
-   
-    // Log the queryURL
-    console.log(site);
-
-    // Log the resulting object
-    console.log(response);
-
-    // Transfer content to HTML
-    $(".venueImage").html("Venue: " + response._embedded.events[0]._embedded.venues[0].images[0].url);
-    $(".name").text("Event Name: " + response._embedded.events[0].name);
-    $(".priceRanges").text("Price Ranges: Max: $" + response._embedded.events[0].priceRanges[0].max + " Min: $" + response._embedded.events[0].priceRanges[0].min);
-    $(".initialStartDate").text("Event Start Date:  " + response._embedded.events[0].dates.start.localDate + " Event Start Time: " + response._embedded.events[0].dates.start.localTime);
-
-    // Log the data in the console as well
-    console.log("Venue: " + response._embedded.events[0]._embedded.venues[0].images[0].url);
-    console.log("Event Name: " + response._embedded.events[0].name);
-    console.log("Price Ranges: Max: $" + response._embedded.events[0].priceRanges[0].max + " Min: $" + response._embedded.events[0].priceRanges[0].min);
-    console.log("Event Start Date:  " + response._embedded.events[0].dates.start.localDate + " Event Start Time: " + response._embedded.events[0].dates.start.localTime);
-});
 
 getEvents.addEventListener("click", generateURL);
