@@ -1,6 +1,8 @@
 // variable for submit button - ticketmasters
 var getEvents = document.getElementById('getEvents');
 var chooseEvent = document.getElementById('populateEvents');
+var seeSaved = document.getElementById('savedStuff');
+
 
 // ticketmaster fetch functionality
 function generateURL (event) {
@@ -136,6 +138,12 @@ function eventFetch(call) {
 // container row needs id="populateEvents"
 function displayOptions(data) {
     var eventDisplay = document.getElementById('populateEvents');
+    eventDisplay.setAttribute('class', 'container')
+    var eventDivTitle = document.createElement('h2');
+    var divTitleText = document.createTextNode('Events to Choose From')
+    eventDivTitle.appendChild(divTitleText);
+    eventDisplay.appendChild(eventDivTitle);
+
     var thing = data._embedded.events //this is an array
     for(var i=0; i<thing.length; i++) {
         // create event card class = card medium
@@ -193,7 +201,7 @@ function saveChoice (info) {
         return;
     } else {
     console.log(info);
-    var date = saveAs;
+    var date = saveAs.toUpperCase();
     var deets = {
         "id": info.id,
         "title": info.name,
@@ -214,13 +222,74 @@ function saveChoice (info) {
     localStorage.setItem(key, JSON.stringify(dates));
     };
     console.log(dates);
-
+    return "food.html";
     }
 
-// save value object to local storage, fill div on page displaying local storage list of saved names  
-// set value to look up restaurants
+    // Display saved event list:
+function getSaved(ev) {
+    ev.preventDefault();
+    var key = 'savedDates';
+    var storage = localStorage.getItem(key);
+    if (storage) {
+        dates = JSON.parse(storage);
+    }
+    showSaved(dates);
+}
 
-    
+function showSaved(dateItems) {
+    var saveDisplay = document.getElementById('populateEvents');
+    saveDisplay.innerHTML = '';
+    saveDisplay.setAttribute('class', 'container');
+    var saveDivTitle = document.createElement('h2');
+    var saveTitleText = document.createTextNode('Your Saved Events')
+    saveDivTitle.appendChild(saveTitleText);
+    saveDisplay.appendChild(saveDivTitle);
+    var stuff = dateItems;
+    for (var i = 0; i<stuff.length; i++) {
+        console.log(stuff[i]);
+        var saveCard = document.createElement('div');
+        saveCard.setAttribute('class', 'card-panel row col s12 m8');
+        saveCard.setAttribute('id', i);
+// 
+        var picDiv = document.createElement('div');
+        picDiv.setAttribute('class', 'col s2');
+        var picCircle = document.createElement('img');
+        picCircle.setAttribute('class', 'circle responsive-img');
+        picCircle.setAttribute('src', stuff[i][1].img);
+        picDiv.appendChild(picCircle);
+        saveCard.appendChild(picDiv);
+// 
+        var detailsDiv = document.createElement('div');
+        detailsDiv.setAttribute('class', 'col s10');
+        var nameEvent = document.createElement('h3');
+        nameEvent.setAttribute('class', 'card-title');
+        var namename = stuff[i][0];
+        var nameTitle = document.createTextNode(namename);
+        
+        nameEvent.appendChild(nameTitle);
+        detailsDiv.appendChild(nameEvent);
+        // 
+        var dateSpace = document.createElement('p');
+        var dateTime = new Date(stuff[i][1].date);
+        var datedate = document.createTextNode(dateTime.toLocaleDateString());
+        dateSpace.appendChild(datedate);
+        detailsDiv.appendChild(dateSpace);
+// 
+        var location = document.createElement('p');
+        var locText = document.createTextNode(stuff[i][1].venue);
+        location.appendChild(locText);
+        detailsDiv.appendChild(location);
+// 
+        // var link = document.createElement('a');
+        // var linkText = document.createTextNode('Click to purchase tickets from TicketMasters');
+        // link.setAttribute('href', stuff[i][1].url);
+        // link.appendChild(linkText);
+        // detailsDiv.appendChild(link)
+// 
+        saveCard.appendChild(detailsDiv);
+        saveDisplay.appendChild(saveCard);
+    }
+}
 
 //      save selection > passing latlong to zomato search
 //      display selection page somewhere
@@ -229,3 +298,4 @@ function saveChoice (info) {
 
 
 getEvents.addEventListener("click", generateURL);
+seeSaved.addEventListener("click", getSaved);
